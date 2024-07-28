@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI課程</title>
+    <title>AI課程與項目</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         body {
@@ -39,21 +39,36 @@
         .icon-link:hover {
             opacity: 0.8;
         }
-        /* 第一個表格的樣式 */
-        .table-1 th {
-            background-color: #4CAF50;
-            color: white;
+        /* 課程表格樣式 */
+        .table-first th { background-color: #4CAF50; color: white; }
+        .table-first .icon-link { color: #4CAF50; }
+        .table-github th { background-color: #db3498; color: white; }
+        .table-github .icon-link { color: #db3498; }
+        /* 新增表格樣式 */
+        .table-sideproject th { background-color: #e74c3c; color: white; }
+        .table-sideproject .icon-link { color: #e74c3c; }
+        .table-other th { background-color: #f39c12; color: white; }
+        .table-other .icon-link { color: #f39c12; }
+
+        /* 作者信息區塊樣式 */
+        .author-info {
+            background-color: #87cefa;
+            color: #333; /* 深色文字，提高對比度 */
+            padding: 20px;
+            margin-top: 40px;
+            border-radius: 5px;
+            text-align: left; /* 文字靠左對齊 */
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* 添加輕微陰影 */
+			font-weight: bold;
         }
-        .table-1 .icon-link {
-            color: #4CAF50;
+        .author-info p {
+            margin: 5px 0; /* 調整段落間距 */
         }
-        /* 第二個表格的樣式 */
-        .table-2 th {
-            background-color: #db3498;
-            color: white;
-        }
-        .table-2 .icon-link {
-            color: #db3498;
+        .author-info .collaboration-note {
+            margin-top: 15px;
+            font-style: italic;
+            color: #666; /* 稍微淺一點的顏色，但仍保持可讀性 */
+			font-family: Arial, sans-serif;
         }
 
         /* 響應式設計 */
@@ -61,23 +76,17 @@
             table, thead, tbody, th, td, tr {
                 display: block;
             }
-            
             thead tr {
                 position: absolute;
                 top: -9999px;
                 left: -9999px;
             }
-            
-            tr {
-                margin-bottom: 15px;
-            }
-            
+            tr { margin-bottom: 15px; }
             td {
                 border: none;
                 position: relative;
                 padding-left: 50%;
             }
-            
             td:before {
                 position: absolute;
                 top: 6px;
@@ -88,17 +97,16 @@
                 content: attr(data-label);
                 font-weight: bold;
             }
-
-            .icon-link {
-                font-size: 20px;
-            }
+            .icon-link { font-size: 20px; }
         }
     </style>
 </head>
 <body>
     <h1>AkiraのAI課程</h1>
-	<h2>初步認識生成式AI</h2>
-    <table class="table-1">
+    
+    <!-- 初步認識生成式AI -->
+    <h2>初步認識生成式AI</h2>
+    <table class="table-first">
         <thead>
             <tr>
                 <th>課程名稱</th>
@@ -107,11 +115,6 @@
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <td data-label="課程名稱">第0堂-課前須知</td>
-                <td data-label="簡報連結"><a href="https://drive.google.com/file/d/1HSyGZgEGplIUZtF4_upCSDmBKqAaScjp/view?usp=drive_link" class="icon-link" title="簡報連結"><i class="fas fa-file-powerpoint"></i></a></td>
-                <td data-label="課程影片"><a href="https://youtu.be/moR_sLqzNeU" class="icon-link" title="觀看影片"><i class="fas fa-video"></i></a></td>
-            </tr>
             <tr>
                 <td data-label="課程名稱">第1堂-淺談生成式AI</td>
                 <td data-label="簡報連結"><a href="https://drive.google.com/file/d/1UXg-59x-Tp0RXUl8BfDfv-QE126X63QR/view?usp=drive_link" class="icon-link" title="簡報連結"><i class="fas fa-file-powerpoint"></i></a></td>
@@ -122,7 +125,7 @@
                 <td data-label="簡報連結"><a href="https://drive.google.com/file/d/1YjIxSbVIqfGoxFLdR1aroEXGXnAg5sgX/view?usp=drive_link" class="icon-link" title="簡報連結"><i class="fas fa-file-powerpoint"></i></a></td>
                 <td data-label="課程影片"><a href="https://youtu.be/UeoaPAU9TnM" class="icon-link" title="觀看影片"><i class="fas fa-video"></i></a></td>
             </tr>
-			<tr>
+            <tr>
                 <td data-label="課程名稱">第3堂-生成式AI的缺點與風險</td>
                 <td data-label="簡報連結"><a href="https://drive.google.com/file/d/1F8bNtkJIxaQ4tEQtqjO5YwCy6qU_bn8z/view?usp=drive_link" class="icon-link" title="簡報連結"><i class="fas fa-file-powerpoint"></i></a></td>
                 <td data-label="課程影片"><a href="https://youtu.be/gXr6_lmsQvA" class="icon-link" title="觀看影片"><i class="fas fa-video"></i></a></td>
@@ -130,8 +133,9 @@
         </tbody>
     </table>
 
+    <!-- GitHub Copilot實戰應用教學 -->
     <h2>GitHub Copilot實戰應用教學</h2>
-    <table class="table-2">
+    <table class="table-github">
         <thead>
             <tr>
 		<th>課程編號</th>
@@ -159,7 +163,7 @@
                 <td data-label="簡報連結"><a href="https://drive.google.com/file/d/1NmC5w8un6d0PnQSaYsGeeFKLAGCWWg_6/view?usp=drive_link" class="icon-link" title="簡報連結"><i class="fas fa-file-powerpoint"></i></a></td>
                 <td data-label="課程影片"><a href="https://youtu.be/icYwGJxNprs" class="icon-link" title="觀看影片"><i class="fas fa-video"></i></a></td>
             </tr>
-	    <tr>
+		<tr>
 		<td data-label="課程編號">04</td>
                 <td data-label="課程名稱">語音輸入篇</td>
                 <td data-label="簡報連結"><a href="https://drive.google.com/file/d/10sRq3DMAYr2NPe9DEZL0VdlznW-qVZPY/view?usp=drive_link" class="icon-link" title="簡報連結"><i class="fas fa-file-powerpoint"></i></a></td>
@@ -173,5 +177,58 @@
             </tr>
         </tbody>
     </table>
+
+    <!-- Side Project表格 -->
+    <h2>Side Project</h2>
+    <table class="table-sideproject">
+        <thead>
+            <tr>
+                <th>名稱</th>
+                <th>連結</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td data-label="名稱">sideproject分享-請假加班申請小助手</td>
+                <td data-label="連結"><a href="https://drive.google.com/file/d/1gL2jlDD_y6xaqAd-WU95sybGUM0mDs2G/view?usp=drive_link" class="icon-link" title="專案連結"><i class="fas fa-file-powerpoint"></i></a></td>
+            </tr>
+            <!--<tr>
+                <td data-label="名稱">智能聊天機器人</td>
+                <td data-label="連結"><a href="#" class="icon-link" title="專案連結"><i class="fas fa-link"></i></a></td>
+            </tr>--!>
+        </tbody>
+    </table>
+
+    <!-- 其他表格 -->
+    <h2>其他</h2>
+    <table class="table-other">
+        <thead>
+            <tr>
+                <th>名稱</th>
+                <th>連結</th>
+            </tr>
+        </thead>
+        <tbody>
+	    <tr>
+	        <td data-label="名稱">[DEMO]請Claude寫程式</td>
+		<td data-label="連結"><a href="https://youtu.be/ODYaH82Oq0Y" class="icon-link" title="觀看影片"><i class="fas fa-video"></i></a></td>
+	    </tr>
+            <!--<tr>
+                <td data-label="名稱">AI相關資源</td>
+                <td data-label="連結"><a href="#" class="icon-link" title="資源連結"><i class="fas fa-external-link-alt"></i></a></td>
+            </tr>
+            <tr>
+                <td data-label="名稱">AI社群討論區</td>
+                <td data-label="連結"><a href="#" class="icon-link" title="討論區連結"><i class="fas fa-comments"></i></a></td>
+            </tr>-->
+        </tbody>
+    </table>
+
+    <!-- 更新的作者信息區塊 -->
+    <div class="author-info">
+        <p>關於作者：</p>
+        <p>1993年製造於全糖之都。會想學寫程式是因為覺得電影中的駭客很帥，實際接觸才知道幻想與現實有段距離。</p>
+        <p class="collaboration-note">此網頁由作者與Claude 3.5 Sonnet合作編寫</p>
+    </div>
 </body>
 </html>
